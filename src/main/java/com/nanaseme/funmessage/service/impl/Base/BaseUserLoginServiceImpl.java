@@ -4,6 +4,8 @@ import com.nanaseme.funmessage.common.BaseObject;
 import com.nanaseme.funmessage.model.domain.UserInfoDomain;
 import com.nanaseme.funmessage.model.request.UserInfoInsertRequest;
 import com.nanaseme.funmessage.service.UserLoginService;
+import com.nanaseme.funmessage.util.ValidateUtil;
+import com.nanaseme.funmessage.util.assembler.UserInfoAssembler;
 
 /**
  * 用户登录 服务层基础实现
@@ -22,6 +24,12 @@ public abstract class BaseUserLoginServiceImpl extends BaseObject implements Use
      */
     @Override
     public UserInfoDomain insertSelective(UserInfoInsertRequest userInfoInsertRequest) {
+        // 校验
+        ValidateUtil.fastFailValidate(userInfoInsertRequest);
+
+        UserInfoDomain userInfoDomain = UserInfoAssembler.assembleInsertRequest2Domain(userInfoInsertRequest);
+
+
         return null;
     }
 }
