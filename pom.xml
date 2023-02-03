@@ -36,18 +36,18 @@
 
         <!-- log相关 begin-->
         <!-- slf4j核心包-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
         </dependency>
-        &lt;!&ndash;用于与slf4j保持桥接&ndash;&gt;
-        <dependency>
+        <!--用于与slf4j保持桥接-->
+        <!--<dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.9.1</version>
-        </dependency>
-        &lt;!&ndash; log4j &ndash;&gt;
+        </dependency>-->
+        <!-- log4j -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -57,7 +57,7 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.9.1</version>
-        </dependency>-->
+        </dependency>
         <!-- log相关 end-->
 
         <dependency>
@@ -83,6 +83,14 @@
             <version>1.9.2</version>
         </dependency>
         <!-- swagger自动文档 end -->
+
+        <!-- gson工具 begin -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+        <!-- gson工具 end -->
 
         <!--MySQL驱动-->
         <dependency>
