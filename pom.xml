@@ -17,6 +17,8 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+
+        <!--SpringBoot Start begin -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -26,6 +28,12 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--SpringBoot Start end -->
 
         <!--MyBatis分页插件 -->
         <dependency>
@@ -60,11 +68,17 @@
         </dependency>
         <!-- log相关 end-->
 
+        <!-- Md5相关 begin -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <!-- Md5相关 end -->
 
         <!-- swagger自动文档 begin -->
         <dependency>
@@ -91,6 +105,19 @@
             <version>2.8.5</version>
         </dependency>
         <!-- gson工具 end -->
+
+        <!-- validator begin-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.1.5.Final</version>
+        </dependency>
+        <!-- validator end-->
 
         <!--MySQL驱动-->
         <dependency>
