@@ -1,5 +1,7 @@
 package com.nanaseme.funmessage.model.data;
 
+import com.nanaseme.funmessage.common.BaseOperatorDO;
+
 import java.util.Date;
 
 /**
@@ -8,35 +10,11 @@ import java.util.Date;
  * @author WangZD
  * @Date 2023/2/3 16:12
  */
-public class UserInfoDO {
+public class UserInfoDO extends BaseOperatorDO {
     /**
      * 用户ID
      */
     private Long userId;
-    /**
-     * 创建者ID
-     */
-    private Long uidCreate;
-    /**
-     * 创建者姓名
-     */
-    private String unameCreate;
-    /**
-     * 创建时间
-     */
-    private Date gmtCreate;
-    /**
-     * 修改者ID
-     */
-    private Long uidModify;
-    /**
-     * 修改者姓名
-     */
-    private String unameModify;
-    /**
-     * 修改时间
-     */
-    private Date gmtModify;
     /**
      * 用户账号
      */
@@ -72,54 +50,6 @@ public class UserInfoDO {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public Long getUidCreate() {
-        return uidCreate;
-    }
-
-    public void setUidCreate(Long uidCreate) {
-        this.uidCreate = uidCreate;
-    }
-
-    public String getUnameCreate() {
-        return unameCreate;
-    }
-
-    public void setUnameCreate(String unameCreate) {
-        this.unameCreate = unameCreate;
-    }
-
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Long getUidModify() {
-        return uidModify;
-    }
-
-    public void setUidModify(Long uidModify) {
-        this.uidModify = uidModify;
-    }
-
-    public String getUnameModify() {
-        return unameModify;
-    }
-
-    public void setUnameModify(String unameModify) {
-        this.unameModify = unameModify;
-    }
-
-    public Date getGmtModify() {
-        return gmtModify;
-    }
-
-    public void setGmtModify(Date gmtModify) {
-        this.gmtModify = gmtModify;
     }
 
     public String getUserAccount() {

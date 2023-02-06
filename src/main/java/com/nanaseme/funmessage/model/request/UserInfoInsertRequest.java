@@ -1,5 +1,7 @@
 package com.nanaseme.funmessage.model.request;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -35,6 +37,7 @@ public class UserInfoInsertRequest {
      * 生日日期
      */
     @NotNull(message = "生日日期不能为空!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date gmtBirthday;
 
     public String getUserAccount() {

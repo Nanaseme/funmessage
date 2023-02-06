@@ -1,13 +1,15 @@
 package com.nanaseme.funmessage.util.assembler;
 
+import com.nanaseme.funmessage.common.BaseAssembler;
 import com.nanaseme.funmessage.constants.CommonConstants;
 import com.nanaseme.funmessage.model.domain.UserInfoDomain;
 import com.nanaseme.funmessage.model.enums.RecordStatusEnum;
 import com.nanaseme.funmessage.model.request.UserInfoInsertRequest;
+import com.nanaseme.funmessage.model.result.UserInfoResult;
 import com.nanaseme.funmessage.util.Md5Util;
 import com.nanaseme.funmessage.util.TimeUtil;
 
-public class UserInfoAssembler {
+public class UserInfoAssembler extends BaseAssembler {
     /**
      * InsertRequest -> Domain
      *
@@ -38,5 +40,32 @@ public class UserInfoAssembler {
         userInfoDomain.setRecordStatus(RecordStatusEnum.ON);
 
         return userInfoDomain;
+    }
+
+    /**
+     * Domain -> Result
+     *
+     * @param userInfoDomain 用户信息Domain对象
+     * @return result
+     * @author WangZD
+     * @Date 2023/2/6 14:16
+     */
+    public static UserInfoResult assembleDomain2Result(UserInfoDomain userInfoDomain) {
+        if (userInfoDomain == null) {
+            return null;
+        }
+
+        UserInfoResult userInfoResult = new UserInfoResult();
+
+        assembleOperateInfo4Result(userInfoDomain, userInfoResult);
+        userInfoResult.setUserId(userInfoDomain.getUserId());
+        userInfoResult.setUserAccount(userInfoDomain.getUserAccount());
+        userInfoResult.setUserPassword(userInfoDomain.getUserPassword());
+        userInfoResult.setUserName(userInfoDomain.getUserName());
+        userInfoResult.setUserMail(userInfoDomain.getUserMail());
+        userInfoResult.setPermissionLevel(userInfoDomain.getPermissionLevel());
+        userInfoResult.setRecordStatus(userInfoDomain.getRecordStatus().getCode());
+
+        return userInfoResult;
     }
 }

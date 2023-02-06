@@ -3,9 +3,12 @@ package com.nanaseme.funmessage.service.impl.Base;
 import com.nanaseme.funmessage.common.BaseObject;
 import com.nanaseme.funmessage.model.domain.UserInfoDomain;
 import com.nanaseme.funmessage.model.request.UserInfoInsertRequest;
+import com.nanaseme.funmessage.repository.UserLoginRepository;
 import com.nanaseme.funmessage.service.UserLoginService;
 import com.nanaseme.funmessage.util.ValidateUtil;
 import com.nanaseme.funmessage.util.assembler.UserInfoAssembler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextException;
 
 /**
  * 用户登录 服务层基础实现
@@ -14,6 +17,9 @@ import com.nanaseme.funmessage.util.assembler.UserInfoAssembler;
  * @Date 2023/2/3 17:18
  */
 public abstract class BaseUserLoginServiceImpl extends BaseObject implements UserLoginService {
+    @Autowired
+    protected UserLoginRepository userLoginRepository;
+
     /**
      * 新增一条用户信息
      *
@@ -27,9 +33,13 @@ public abstract class BaseUserLoginServiceImpl extends BaseObject implements Use
         // 校验
         ValidateUtil.fastFailValidate(userInfoInsertRequest);
 
+        // request -> Domain
         UserInfoDomain userInfoDomain = UserInfoAssembler.assembleInsertRequest2Domain(userInfoInsertRequest);
 
-
-        return null;
+        Integer rowCount = userLoginRepository.insertSelective(userInfoDomain);
+        if (rowCount != 1) {
+            throw new ApplicationContextException("新增失败");
+        }
+        return userInfoDomain;
     }
 }
