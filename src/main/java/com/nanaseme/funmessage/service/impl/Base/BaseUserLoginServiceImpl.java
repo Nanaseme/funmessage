@@ -38,7 +38,7 @@ public abstract class BaseUserLoginServiceImpl extends BaseObject implements Use
 
         Integer rowCount = userLoginRepository.insertSelective(userInfoDomain);
         if (rowCount != 1) {
-            throw new ApplicationContextException("新增失败");
+            throw new ApplicationContextException("新增失败111");
         }
         return userInfoDomain;
     }
